@@ -1,5 +1,4 @@
 """Example of a Golden Gate Assembly from a single list of SeqRecords into a plasmid.
-
 The SeqRecords are combined into new plasmid SeqRecords:
 all new combinations of SeqRecords. An error is thrown if no new plasmids are possible.
 """
@@ -21,14 +20,15 @@ def read(filename):
 
 # read in each SeqRecord: a promoter, RBS, CDS, terminator and backbone
 design = Plasmid(
-    read(r)
+    (read(r)
     for r in [
         "J23100_AB.gb",
         "B0032m_BC.gb",
         "C0012m_CD.gb",
         "B0015_DE.gb",
         "DVK_AE.gb",
-    ]
+    ]), 
+    linear = False
 )
 
 # create a protocol using GoldenGate as the sole composite step and run
